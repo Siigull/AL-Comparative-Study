@@ -1,0 +1,11 @@
+Loading data from dataloader
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3165/3165 [00:12<00:00, 253.04it/s]
+Loading data from dataloader
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 75/75 [00:03<00:00, 19.75it/s]
+Loading data from dataloader
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 404/404 [00:05<00:00, 68.07it/s]
+Traceback (most recent call last):
+  File "/Users/dan/Documents/src/COMP-STUDY/synced/random_selection.py", line 59, in <module>
+    wandb_report(training_results, y_test.argmax(axis=1), clf.predict(X_test).argmax(axis=1), [str(i) for i in range(nclasses)])
+                                   ^^^^^^^^^^^^^^^^^^^^^
+numpy.exceptions.AxisError: axis 1 is out of bounds for array of dimension 1

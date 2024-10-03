@@ -1,0 +1,5 @@
+[default]
+entity = ctufit
+project = pelanekd-ALcompstudy-test-1
+base_url = https://api.wandb.ai
+
