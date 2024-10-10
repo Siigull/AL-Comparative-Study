@@ -14,6 +14,7 @@ PYTHON_ENV=$HOMEDIR/synced/venv       # Path to Python environment
 source $PYTHON_ENV/bin/activate     # Activate Python environment
 HOSTNAME=`hostname -f`              # Hostname
 EXECMAIL=`which mail`               # Mail command
+CONFIG_DIR=$ETADL/conf              # Configuration directory
 
 # Send email
 $EXECMAIL -s "[JP-METACENTRUM-JOB] Agent Sweep job is running on $HOSTNAME" $PBS_O_LOGNAME << EOFmail
@@ -37,4 +38,4 @@ cp $HOMEDIR/.netrc ~/.netrc         # Copy netrc credentials to be sure that wan
 echo "Running experiment"
 cd $HOMEDIR/synced
 
-python random_selection.py
+wandb agent ctufit/pelanekd-ALcompstudy-test-1/9vckh2hs

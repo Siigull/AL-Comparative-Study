@@ -4,7 +4,7 @@
 # Usage: sync.sh <server> <user>
 
 if [ $# -ne 2 ]; then
-    echo "Usage: sync_to_meta.sh <server>"
+    echo "Usage: sync_to_meta.sh <server> <user>"
     echo "Hint: skirit.ics.muni.cz"
     exit 1
 fi
@@ -15,7 +15,7 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-rsync -av --no-perms --exclude data --exclude generated . $2@$1:~/synced
+rsync -av --no-perms --exclude data --exclude generated --exclude env . $2@$1:~/synced
 
 if [ $? -ne 0 ]; then
     echo "Syncing this folder to server $1 failed"
