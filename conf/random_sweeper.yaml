@@ -1,0 +1,33 @@
+program: random_strategy.py
+method: bayes
+metric:
+  name: eval/f1
+  goal: maximize
+parameters:
+  min_data_in_leaf:
+    min: 100
+    max: 5000
+  num_leaves:
+    min: 16
+    max: 256
+  bagging_fraction:
+    min: 0.4
+    max: 1.0
+  feature_fraction:
+    min: 0.4
+    max: 1.0
+  min_child_samples:
+    min: 5
+    max: 100
+  learning_rate:
+    min: 0.001
+    max: 0.1
+  random_frac:
+    min: 0.01
+    max: 0.1
+
+command:
+  - python3
+  - ${program}
+  - "--config-name"
+  - "lgbm-conf"

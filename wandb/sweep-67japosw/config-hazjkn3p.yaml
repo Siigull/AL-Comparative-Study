@@ -1,0 +1,14 @@
+wandb_version: 1
+
+bagging_fraction:
+  value: 0.5855442712937254
+feature_fraction:
+  value: 0.5084546131928751
+learning_rate:
+  value: 0.04023455511876557
+min_child_samples:
+  value: 52
+min_data_in_leaf:
+  value: 1741
+num_leaves:
+  value: 96

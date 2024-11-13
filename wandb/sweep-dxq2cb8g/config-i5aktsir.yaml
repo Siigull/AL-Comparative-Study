@@ -1,0 +1,16 @@
+wandb_version: 1
+
+average_unc_cutoff:
+  value: 0.021428829036429124
+bagging_fraction:
+  value: 0.41413578275496415
+feature_fraction:
+  value: 0.6480895001480504
+learning_rate:
+  value: 0.0564384168258255
+min_child_samples:
+  value: 64
+min_data_in_leaf:
+  value: 3020
+num_leaves:
+  value: 246

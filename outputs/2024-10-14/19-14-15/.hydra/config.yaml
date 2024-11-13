@@ -1,0 +1,7 @@
+project_name: pelanekd-ALcompstudy-test-1
+min_data_in_leaf: 500
+num_leaves: 128
+bagging_fraction: 0.7
+feature_fraction: 0.7
+min_child_samples: 50
+learning_rate: 0.01
