@@ -1,0 +1,158 @@
+2024-11-14 00:32:26,011 INFO    StreamThr :35955 [internal.py:wandb_internal():85] W&B internal server running at pid: 35955, started at: 2024-11-14 00:32:26.010401
+2024-11-14 00:32:26,012 DEBUG   HandlerThread:35955 [handler.py:handle_request():158] handle_request: status
+2024-11-14 00:32:26,021 INFO    WriterThread:35955 [datastore.py:open_for_write():87] open: /Users/dan/Documents/src/COMP-STUDY/synced/wandb/run-20241114_003225-om3gjoyw/run-om3gjoyw.wandb
+2024-11-14 00:32:26,021 DEBUG   SenderThread:35955 [sender.py:send():389] send: header
+2024-11-14 00:32:26,036 DEBUG   SenderThread:35955 [sender.py:send():389] send: run
+2024-11-14 00:32:26,421 INFO    SenderThread:35955 [dir_watcher.py:__init__():211] watching files in: /Users/dan/Documents/src/COMP-STUDY/synced/wandb/run-20241114_003225-om3gjoyw/files
+2024-11-14 00:32:26,421 INFO    SenderThread:35955 [sender.py:_start_run_threads():1157] run started: om3gjoyw with start time 1731540746.009952
+2024-11-14 00:32:26,434 DEBUG   HandlerThread:35955 [handler.py:handle_request():158] handle_request: run_start
+2024-11-14 00:32:26,441 DEBUG   HandlerThread:35955 [system_info.py:__init__():26] System info init
+2024-11-14 00:32:26,441 DEBUG   HandlerThread:35955 [system_info.py:__init__():41] System info init done
+2024-11-14 00:32:26,441 INFO    HandlerThread:35955 [system_monitor.py:start():194] Starting system monitor
+2024-11-14 00:32:26,441 INFO    SystemMonitor:35955 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2024-11-14 00:32:26,441 INFO    HandlerThread:35955 [system_monitor.py:probe():214] Collecting system info
+2024-11-14 00:32:26,444 INFO    SystemMonitor:35955 [interfaces.py:start():188] Started cpu monitoring
+2024-11-14 00:32:26,445 INFO    SystemMonitor:35955 [interfaces.py:start():188] Started disk monitoring
+2024-11-14 00:32:26,447 INFO    SystemMonitor:35955 [interfaces.py:start():188] Started gpuapple monitoring
+2024-11-14 00:32:26,447 INFO    SystemMonitor:35955 [interfaces.py:start():188] Started memory monitoring
+2024-11-14 00:32:26,450 INFO    SystemMonitor:35955 [interfaces.py:start():188] Started network monitoring
+2024-11-14 00:33:26,455 DEBUG   SystemMonitor:35955 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2024-11-14 00:40:47,333 WARNING FileStreamThread:35955 [file_stream.py:request_with_retry():674] requests_with_retry encountered retryable exception: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')). func: <bound method Session.post of <requests.sessions.Session object at 0x10f8ef950>>, args: ('https://api.wandb.ai/files/ctufit/pelanekd-ALcompstudy-test/om3gjoyw/file_stream',), kwargs: {'json': {'complete': False, 'failed': False, 'dropped': 0, 'uploaded': []}}
+2024-11-14 00:40:49,623 WARNING FileStreamThread:35955 [file_stream.py:request_with_retry():674] requests_with_retry encountered retryable exception: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /files/ctufit/pelanekd-ALcompstudy-test/om3gjoyw/file_stream (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x10f9d3290>: Failed to resolve 'api.wandb.ai' ([Errno 8] nodename nor servname provided, or not known)")). func: <bound method Session.post of <requests.sessions.Session object at 0x10f8ef950>>, args: ('https://api.wandb.ai/files/ctufit/pelanekd-ALcompstudy-test/om3gjoyw/file_stream',), kwargs: {'json': {'complete': False, 'failed': False, 'dropped': 0, 'uploaded': []}}
+2024-11-14 00:40:54,290 WARNING FileStreamThread:35955 [file_stream.py:request_with_retry():674] requests_with_retry encountered retryable exception: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /files/ctufit/pelanekd-ALcompstudy-test/om3gjoyw/file_stream (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x10f9ee6d0>: Failed to resolve 'api.wandb.ai' ([Errno 8] nodename nor servname provided, or not known)")). func: <bound method Session.post of <requests.sessions.Session object at 0x10f8ef950>>, args: ('https://api.wandb.ai/files/ctufit/pelanekd-ALcompstudy-test/om3gjoyw/file_stream',), kwargs: {'json': {'complete': False, 'failed': False, 'dropped': 0, 'uploaded': []}}
+2024-11-14 00:41:04,308 WARNING FileStreamThread:35955 [file_stream.py:request_with_retry():674] requests_with_retry encountered retryable exception: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /files/ctufit/pelanekd-ALcompstudy-test/om3gjoyw/file_stream (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x10f9ef010>: Failed to resolve 'api.wandb.ai' ([Errno 8] nodename nor servname provided, or not known)")). func: <bound method Session.post of <requests.sessions.Session object at 0x10f8ef950>>, args: ('https://api.wandb.ai/files/ctufit/pelanekd-ALcompstudy-test/om3gjoyw/file_stream',), kwargs: {'json': {'complete': False, 'failed': False, 'dropped': 0, 'uploaded': []}}
+2024-11-14 00:41:24,253 WARNING FileStreamThread:35955 [file_stream.py:request_with_retry():674] requests_with_retry encountered retryable exception: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /files/ctufit/pelanekd-ALcompstudy-test/om3gjoyw/file_stream (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x10fc10c90>: Failed to resolve 'api.wandb.ai' ([Errno 8] nodename nor servname provided, or not known)")). func: <bound method Session.post of <requests.sessions.Session object at 0x10f8ef950>>, args: ('https://api.wandb.ai/files/ctufit/pelanekd-ALcompstudy-test/om3gjoyw/file_stream',), kwargs: {'json': {'complete': False, 'failed': False, 'dropped': 0, 'uploaded': []}}
+2024-11-14 00:42:02,971 WARNING FileStreamThread:35955 [file_stream.py:request_with_retry():674] requests_with_retry encountered retryable exception: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /files/ctufit/pelanekd-ALcompstudy-test/om3gjoyw/file_stream (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x10f9ef6d0>: Failed to resolve 'api.wandb.ai' ([Errno 8] nodename nor servname provided, or not known)")). func: <bound method Session.post of <requests.sessions.Session object at 0x10f8ef950>>, args: ('https://api.wandb.ai/files/ctufit/pelanekd-ALcompstudy-test/om3gjoyw/file_stream',), kwargs: {'json': {'complete': False, 'failed': False, 'dropped': 0, 'uploaded': []}}
+2024-11-14 00:42:33,821 INFO    Thread-12 :35955 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/dan/Documents/src/COMP-STUDY/synced/wandb/run-20241114_003225-om3gjoyw/files/media/table/eval/report_1_4a01f49df450381ebf63.table.json
+2024-11-14 00:42:33,821 INFO    Thread-12 :35955 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/dan/Documents/src/COMP-STUDY/synced/wandb/run-20241114_003225-om3gjoyw/files/media
+2024-11-14 00:42:33,822 INFO    Thread-12 :35955 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/dan/Documents/src/COMP-STUDY/synced/wandb/run-20241114_003225-om3gjoyw/files/media/table
+2024-11-14 00:42:33,822 INFO    Thread-12 :35955 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/dan/Documents/src/COMP-STUDY/synced/wandb/run-20241114_003225-om3gjoyw/files/media/table/eval
+2024-11-14 00:42:55,298 INFO    wandb-upload_0:35955 [retry.py:__call__():172] Retry attempt failed:
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/socket.py", line 962, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 491, in _make_request
+    raise new_e
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 467, in _make_request
+    self._validate_conn(conn)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 1099, in _validate_conn
+    conn.connect()
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 616, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 205, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPSConnection object at 0x10fc21210>: Failed to resolve 'api.wandb.ai' ([Errno 8] nodename nor servname provided, or not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/adapters.py", line 589, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /graphql (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x10fc21210>: Failed to resolve 'api.wandb.ai' ([Errno 8] nodename nor servname provided, or not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/wandb/sdk/internal/internal_api.py", line 347, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/wandb/sdk/lib/gql_request.py", line 58, in execute
+    request = self.session.post(self.url, **post_args)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/adapters.py", line 622, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /graphql (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x10fc21210>: Failed to resolve 'api.wandb.ai' ([Errno 8] nodename nor servname provided, or not known)"))
+2024-11-14 00:43:11,581 WARNING FileStreamThread:35955 [file_stream.py:request_with_retry():674] requests_with_retry encountered retryable exception: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /files/ctufit/pelanekd-ALcompstudy-test/om3gjoyw/file_stream (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x10fd042d0>: Failed to resolve 'api.wandb.ai' ([Errno 8] nodename nor servname provided, or not known)")). func: <bound method Session.post of <requests.sessions.Session object at 0x10f8ef950>>, args: ('https://api.wandb.ai/files/ctufit/pelanekd-ALcompstudy-test/om3gjoyw/file_stream',), kwargs: {'json': {'complete': False, 'failed': False, 'dropped': 0, 'uploaded': []}}
+2024-11-14 00:45:10,369 INFO    wandb-upload_0:35955 [upload_job.py:push():130] Uploaded file /var/folders/8f/6dw3knc955311yk7rhd5t4980000gn/T/tmpgz8i560dwandb/5oownder-media/table/eval/report_1_4a01f49df450381ebf63.table.json
+2024-11-14 00:52:46,270 INFO    memory    :35955 [interfaces.py:monitor():138] Process proc.memory.rssMB has exited.
+2024-11-14 00:52:46,271 DEBUG   SystemMonitor:35955 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2024-11-14 00:52:46,271 DEBUG   SystemMonitor:35955 [system_monitor.py:_start():183] Publishing last batch of metrics
+2024-11-14 00:52:50,664 WARNING StreamThr :35955 [internal.py:is_dead():413] Internal process exiting, parent pid 35933 disappeared
+2024-11-14 00:52:50,664 ERROR   StreamThr :35955 [internal.py:wandb_internal():151] Internal process shutdown.
+2024-11-14 00:52:50,749 INFO    SenderThread:35955 [sender.py:finish():1589] shutting down sender
+2024-11-14 00:52:50,749 INFO    SenderThread:35955 [dir_watcher.py:finish():358] shutting down directory watcher
+2024-11-14 00:52:50,756 INFO    SenderThread:35955 [dir_watcher.py:finish():388] scan: /Users/dan/Documents/src/COMP-STUDY/synced/wandb/run-20241114_003225-om3gjoyw/files
+2024-11-14 00:52:50,756 INFO    SenderThread:35955 [dir_watcher.py:finish():402] scan save: /Users/dan/Documents/src/COMP-STUDY/synced/wandb/run-20241114_003225-om3gjoyw/files/config.yaml config.yaml
+2024-11-14 00:52:50,757 INFO    SenderThread:35955 [dir_watcher.py:finish():402] scan save: /Users/dan/Documents/src/COMP-STUDY/synced/wandb/run-20241114_003225-om3gjoyw/files/media/table/eval/report_1_4a01f49df450381ebf63.table.json media/table/eval/report_1_4a01f49df450381ebf63.table.json
+2024-11-14 00:52:50,757 INFO    SenderThread:35955 [file_pusher.py:finish():169] shutting down file pusher
+2024-11-14 00:52:50,757 INFO    SenderThread:35955 [file_pusher.py:join():175] waiting for file pusher
+2024-11-14 00:52:51,226 INFO    wandb-upload_0:35955 [upload_job.py:push():130] Uploaded file /Users/dan/Documents/src/COMP-STUDY/synced/wandb/run-20241114_003225-om3gjoyw/files/config.yaml
+2024-11-14 00:52:51,659 INFO    WriterThread:35955 [datastore.py:close():296] close: /Users/dan/Documents/src/COMP-STUDY/synced/wandb/run-20241114_003225-om3gjoyw/run-om3gjoyw.wandb
+2024-11-14 00:52:51,760 INFO    SenderThread:35955 [file_stream.py:finish():601] file stream finish called
+2024-11-14 00:52:51,929 INFO    SenderThread:35955 [file_stream.py:finish():605] file stream finish is done
+2024-11-14 11:49:50,839 ERROR   HandlerThread:35955 [gpu_apple.py:probe():176] GPU stats error: Command '['/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/wandb/bin/apple_gpu_stats', '--json']' died with <Signals.SIGTRAP: 5>.
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/wandb/sdk/internal/system/assets/gpu_apple.py", line 164, in probe
+    subprocess.check_output(command, universal_newlines=True)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/wandb/bin/apple_gpu_stats', '--json']' died with <Signals.SIGTRAP: 5>.
+2024-11-14 11:49:50,881 DEBUG   HandlerThread:35955 [system_info.py:probe():152] Probing system
+2024-11-14 11:49:50,855 ERROR   gpuapple  :35955 [gpu_apple.py:sample():110] GPU stats error: Command '['/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/wandb/bin/apple_gpu_stats', '--json']' died with <Signals.SIGTRAP: 5>.
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/wandb/sdk/internal/system/assets/gpu_apple.py", line 64, in sample
+    subprocess.check_output(command, universal_newlines=True)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/wandb/bin/apple_gpu_stats', '--json']' died with <Signals.SIGTRAP: 5>.
+2024-11-14 11:49:50,920 DEBUG   HandlerThread:35955 [system_info.py:_probe_git():137] Probing git
+2024-11-14 11:49:52,448 DEBUG   HandlerThread:35955 [system_info.py:_probe_git():145] Probing git done
+2024-11-14 11:49:52,449 DEBUG   HandlerThread:35955 [system_info.py:probe():200] Probing system done
+2024-11-14 11:49:52,449 DEBUG   HandlerThread:35955 [system_monitor.py:probe():223] {'os': 'macOS-13.4.1-arm64-arm-64bit', 'python': '3.11.1', 'heartbeatAt': '2024-11-14T10:49:50.882034', 'startedAt': '2024-11-13T23:32:25.997067', 'docker': None, 'cuda': None, 'args': ('--config-name', 'lgbm-conf'), 'state': 'running', 'program': '/Users/dan/Documents/src/COMP-STUDY/synced/uncertainty_strategy.py', 'codePathLocal': 'uncertainty_strategy.py', 'codePath': 'uncertainty_strategy.py', 'git': {'remote': 'git@github.com:Siigull/AL-Comparative-Study.git', 'commit': '7e7a49d7642bb2c5d4879014e26f7ca35fa0c5ae'}, 'email': None, 'root': '/Users/dan/Documents/src/COMP-STUDY/synced', 'host': 'Daniels-MacBook-Air-2.local', 'username': 'dan', 'executable': '/Library/Frameworks/Python.framework/Versions/3.11/bin/python3', 'cpu_count': 8, 'cpu_count_logical': 8, 'cpu_freq': {'current': 3204, 'min': 600, 'max': 3204}, 'cpu_freq_per_core': [{'current': 3204, 'min': 600, 'max': 3204}], 'disk': {'/': {'total': 228.27386474609375, 'used': 11.198070526123047}}, 'gpuapple': {'type': 'arm', 'vendor': 'Apple'}, 'memory': {'total': 16.0}}
+2024-11-14 11:49:52,449 INFO    HandlerThread:35955 [system_monitor.py:probe():224] Finished collecting system info
+2024-11-14 11:49:52,449 INFO    HandlerThread:35955 [system_monitor.py:probe():227] Publishing system info
+2024-11-14 11:49:52,450 INFO    HandlerThread:35955 [system_monitor.py:probe():229] Finished publishing system info
+2024-11-14 11:49:52,452 INFO    HandlerThread:35955 [handler.py:finish():874] shutting down handler
+2024-11-14 11:49:52,452 INFO    HandlerThread:35955 [system_monitor.py:finish():203] Stopping system monitor
+2024-11-14 11:49:52,452 INFO    HandlerThread:35955 [interfaces.py:finish():200] Joined cpu monitor
+2024-11-14 11:49:52,452 INFO    HandlerThread:35955 [interfaces.py:finish():200] Joined disk monitor
+2024-11-14 11:49:52,452 INFO    HandlerThread:35955 [interfaces.py:finish():200] Joined gpuapple monitor
+2024-11-14 11:49:52,453 INFO    HandlerThread:35955 [interfaces.py:finish():200] Joined memory monitor
+2024-11-14 11:49:52,453 INFO    HandlerThread:35955 [interfaces.py:finish():200] Joined network monitor

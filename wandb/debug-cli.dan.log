@@ -3769,3 +3769,218 @@ requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.wandb.ai', po
 	num_leaves: 246
 2024-11-13 20:23:40 INFO About to run command: python3 uncertainty_strategy.py --config-name lgbm-conf
 2024-11-13 20:23:45 INFO Running runs: ['i5aktsir']
+2024-11-13 21:43:30 INFO Running runs: []
+2024-11-13 21:43:31 INFO Agent received command: run
+2024-11-13 21:43:31 INFO Agent starting run with config:
+	average_unc_cutoff: 0.021091674791785517
+	bagging_fraction: 0.7115539088406235
+	feature_fraction: 0.7178742333162433
+	learning_rate: 0.005311138289019197
+	min_child_samples: 23
+	min_data_in_leaf: 3487
+	num_leaves: 114
+2024-11-13 21:43:31 INFO About to run command: python3 uncertainty_strategy.py --config-name lgbm-conf
+2024-11-13 21:43:36 INFO Running runs: ['hvbqvapx']
+2024-11-13 21:46:26 INFO Running runs: []
+2024-11-13 21:46:27 INFO Agent received command: run
+2024-11-13 21:46:27 INFO Agent starting run with config:
+	average_unc_cutoff: 0.04551614611236191
+	bagging_fraction: 0.6432409886767674
+	feature_fraction: 0.7828807980697348
+	learning_rate: 0.09371250474300263
+	min_child_samples: 25
+	min_data_in_leaf: 2312
+	num_leaves: 207
+2024-11-13 21:46:27 INFO About to run command: python3 uncertainty_strategy.py --config-name lgbm-conf
+2024-11-13 21:46:32 INFO Running runs: ['7g3r1yto']
+2024-11-13 22:03:58 INFO Running runs: []
+2024-11-13 22:03:59 INFO Agent received command: run
+2024-11-13 22:03:59 INFO Agent starting run with config:
+	average_unc_cutoff: 0.02813020394192652
+	bagging_fraction: 0.9413361565483612
+	feature_fraction: 0.7222537098473962
+	learning_rate: 0.0605447655972788
+	min_child_samples: 20
+	min_data_in_leaf: 647
+	num_leaves: 187
+2024-11-13 22:03:59 INFO About to run command: python3 uncertainty_strategy.py --config-name lgbm-conf
+2024-11-13 22:04:04 INFO Running runs: ['fm7vmj7b']
+2024-11-13 22:26:33 INFO Running runs: []
+2024-11-13 22:26:33 INFO Agent received command: run
+2024-11-13 22:26:33 INFO Agent starting run with config:
+	average_unc_cutoff: 0.01153607187938438
+	bagging_fraction: 0.6379978461938535
+	feature_fraction: 0.6778791585324444
+	learning_rate: 0.07276989726174492
+	min_child_samples: 20
+	min_data_in_leaf: 985
+	num_leaves: 71
+2024-11-13 22:26:33 INFO About to run command: python3 uncertainty_strategy.py --config-name lgbm-conf
+2024-11-13 22:26:38 INFO Running runs: ['vu09muor']
+2024-11-13 23:19:33 INFO Running runs: []
+2024-11-13 23:19:34 INFO Agent received command: run
+2024-11-13 23:19:34 INFO Agent starting run with config:
+	average_unc_cutoff: 0.04058612636623209
+	bagging_fraction: 0.5639255791455584
+	feature_fraction: 0.4281014905329889
+	learning_rate: 0.02945306408367715
+	min_child_samples: 55
+	min_data_in_leaf: 2250
+	num_leaves: 235
+2024-11-13 23:19:34 INFO About to run command: python3 uncertainty_strategy.py --config-name lgbm-conf
+2024-11-13 23:19:39 INFO Running runs: ['zii00ll9']
+2024-11-14 00:32:22 INFO Running runs: []
+2024-11-14 00:32:22 INFO Agent received command: run
+2024-11-14 00:32:22 INFO Agent starting run with config:
+	average_unc_cutoff: 0.022356404636860058
+	bagging_fraction: 0.8116110450471201
+	feature_fraction: 0.472433007886386
+	learning_rate: 0.011441173343604252
+	min_child_samples: 44
+	min_data_in_leaf: 1244
+	num_leaves: 225
+2024-11-14 00:32:22 INFO About to run command: python3 uncertainty_strategy.py --config-name lgbm-conf
+2024-11-14 00:32:27 INFO Running runs: ['om3gjoyw']
+2024-11-14 00:40:23 INFO Retry attempt failed:
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/socket.py", line 962, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 491, in _make_request
+    raise new_e
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 467, in _make_request
+    self._validate_conn(conn)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 1099, in _validate_conn
+    conn.connect()
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 616, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connection.py", line 205, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPSConnection object at 0x121d46150>: Failed to resolve 'api.wandb.ai' ([Errno 8] nodename nor servname provided, or not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/adapters.py", line 589, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /graphql (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x121d46150>: Failed to resolve 'api.wandb.ai' ([Errno 8] nodename nor servname provided, or not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/wandb/sdk/internal/internal_api.py", line 347, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/wandb/sdk/lib/gql_request.py", line 58, in execute
+    request = self.session.post(self.url, **post_args)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/requests/adapters.py", line 622, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /graphql (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x121d46150>: Failed to resolve 'api.wandb.ai' ([Errno 8] nodename nor servname provided, or not known)"))
+2024-11-14 01:04:11 INFO Running runs: []
+2024-11-14 01:04:12 INFO Agent received command: run
+2024-11-14 01:04:12 INFO Agent starting run with config:
+	average_unc_cutoff: 0.014866199703316206
+	bagging_fraction: 0.40103942706641926
+	feature_fraction: 0.937799042730426
+	learning_rate: 0.0459674889235475
+	min_child_samples: 53
+	min_data_in_leaf: 524
+	num_leaves: 81
+2024-11-14 01:04:12 INFO About to run command: python3 uncertainty_strategy.py --config-name lgbm-conf
+2024-11-14 01:04:17 INFO Running runs: ['f20rfgvx']
+2024-11-14 01:49:51 INFO Running runs: []
+2024-11-14 01:49:52 INFO Agent received command: run
+2024-11-14 01:49:52 INFO Agent starting run with config:
+	average_unc_cutoff: 0.021153365369091855
+	bagging_fraction: 0.4020318837690579
+	feature_fraction: 0.6557703361901037
+	learning_rate: 0.006149369982245644
+	min_child_samples: 69
+	min_data_in_leaf: 2658
+	num_leaves: 168
+2024-11-14 01:49:52 INFO About to run command: python3 uncertainty_strategy.py --config-name lgbm-conf
+2024-11-14 01:49:57 INFO Running runs: ['yy1pml1w']
+2024-11-14 11:30:57 INFO Running runs: []
+2024-11-14 11:30:58 INFO Agent received command: run
+2024-11-14 11:30:58 INFO Agent starting run with config:
+	bagging_fraction: 0.7662759361468748
+	feature_fraction: 0.5717552562819839
+	learning_rate: 0.07501490803729284
+	min_child_samples: 87
+	min_data_in_leaf: 3210
+	num_leaves: 43
+2024-11-14 11:30:58 INFO About to run command: python3 lightgbm_model.py --config-name lgbm-conf
+2024-11-14 11:31:03 INFO Running runs: ['rgla6v53']
+2024-11-14 11:33:07 INFO Running runs: []
+2024-11-14 11:33:08 INFO Agent received command: run
+2024-11-14 11:33:08 INFO Agent starting run with config:
+	bagging_fraction: 0.4745236928848646
+	feature_fraction: 0.7013663694100658
+	learning_rate: 0.0934844489896861
+	min_child_samples: 16
+	min_data_in_leaf: 1233
+	num_leaves: 98
+2024-11-14 11:33:08 INFO About to run command: python3 lightgbm_model.py --config-name lgbm-conf
+2024-11-14 11:33:13 INFO Running runs: ['7bq2b35i']
+2024-11-14 12:09:45 INFO Running runs: []
+2024-11-14 12:09:45 INFO Agent received command: run
+2024-11-14 12:09:45 INFO Agent starting run with config:
+	bagging_fraction: 0.7072435141250453
+	feature_fraction: 0.8269170402274209
+	learning_rate: 0.08816637866650288
+	min_child_samples: 74
+	min_data_in_leaf: 1625
+	num_leaves: 211
+2024-11-14 12:09:45 INFO About to run command: python3 lightgbm_model.py --config-name lgbm-conf
+2024-11-14 12:09:50 INFO Running runs: ['22d3obyx']
+2024-11-14 12:12:36 INFO Cleaning up finished run: 22d3obyx
+2024-11-14 12:12:37 INFO Agent received command: run
+2024-11-14 12:12:37 INFO Agent starting run with config:
+	bagging_fraction: 0.6838539618179988
+	feature_fraction: 0.835897851655274
+	learning_rate: 0.027396837745324417
+	min_child_samples: 64
+	min_data_in_leaf: 2336
+	num_leaves: 131
+2024-11-14 12:12:37 INFO About to run command: python3 lightgbm_model.py --config-name lgbm-conf

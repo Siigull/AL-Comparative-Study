@@ -1,0 +1,26 @@
+2024-11-14 01:49:56,540 INFO    MainThread:46354 [wandb_setup.py:_flush():79] Current SDK version is 0.18.3
+2024-11-14 01:49:56,541 INFO    MainThread:46354 [wandb_setup.py:_flush():79] Configure stats pid to 46354
+2024-11-14 01:49:56,541 INFO    MainThread:46354 [wandb_setup.py:_flush():79] Loading settings from /Users/dan/.config/wandb/settings
+2024-11-14 01:49:56,541 INFO    MainThread:46354 [wandb_setup.py:_flush():79] Loading settings from /Users/dan/Documents/src/COMP-STUDY/synced/wandb/settings
+2024-11-14 01:49:56,541 INFO    MainThread:46354 [wandb_setup.py:_flush():79] Loading settings from environment variables: {'_require_legacy_service': 'true', 'entity': 'ctufit', 'project': 'pelanekd-ALcompstudy-test', 'sweep_id': 'dxq2cb8g', 'root_dir': '/Users/dan/Documents/src/COMP-STUDY/synced', 'run_id': 'yy1pml1w', 'sweep_param_path': '/Users/dan/Documents/src/COMP-STUDY/synced/wandb/sweep-dxq2cb8g/config-yy1pml1w.yaml'}
+2024-11-14 01:49:56,541 INFO    MainThread:46354 [wandb_setup.py:_flush():79] Applying setup settings: {'mode': None, '_disable_service': None}
+2024-11-14 01:49:56,541 INFO    MainThread:46354 [wandb_setup.py:_flush():79] Inferring run settings from compute environment: {'program_relpath': 'uncertainty_strategy.py', 'program_abspath': '/Users/dan/Documents/src/COMP-STUDY/synced/uncertainty_strategy.py', 'program': '/Users/dan/Documents/src/COMP-STUDY/synced/uncertainty_strategy.py'}
+2024-11-14 01:49:56,541 INFO    MainThread:46354 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-11-14 01:49:56,541 INFO    MainThread:46354 [wandb_init.py:_log_setup():532] Logging user logs to /Users/dan/Documents/src/COMP-STUDY/synced/wandb/run-20241114_014956-yy1pml1w/logs/debug.log
+2024-11-14 01:49:56,541 INFO    MainThread:46354 [wandb_init.py:_log_setup():533] Logging internal logs to /Users/dan/Documents/src/COMP-STUDY/synced/wandb/run-20241114_014956-yy1pml1w/logs/debug-internal.log
+2024-11-14 01:49:56,541 INFO    MainThread:46354 [wandb_init.py:init():617] calling init triggers
+2024-11-14 01:49:56,541 INFO    MainThread:46354 [wandb_init.py:init():624] wandb.init called with sweep_config: {'average_unc_cutoff': 0.021153365369091855, 'bagging_fraction': 0.4020318837690579, 'feature_fraction': 0.6557703361901037, 'learning_rate': 0.006149369982245644, 'min_child_samples': 69, 'min_data_in_leaf': 2658, 'num_leaves': 168}
+config: {}
+2024-11-14 01:49:56,541 INFO    MainThread:46354 [wandb_init.py:init():667] starting backend
+2024-11-14 01:49:56,541 INFO    MainThread:46354 [wandb_init.py:init():671] sending inform_init request
+2024-11-14 01:49:56,547 INFO    MainThread:46354 [backend.py:_multiprocessing_setup():104] multiprocessing start_methods=spawn,fork,forkserver, using: spawn
+2024-11-14 01:49:56,548 INFO    MainThread:46354 [wandb_init.py:init():684] backend started and connected
+2024-11-14 01:49:56,557 INFO    MainThread:46354 [wandb_run.py:_config_callback():1394] config_cb None None {'average_unc_cutoff': 0.021153365369091855, 'bagging_fraction': 0.4020318837690579, 'feature_fraction': 0.6557703361901037, 'learning_rate': 0.006149369982245644, 'min_child_samples': 69, 'min_data_in_leaf': 2658, 'num_leaves': 168}
+2024-11-14 01:49:56,559 INFO    MainThread:46354 [wandb_init.py:init():779] updated telemetry
+2024-11-14 01:49:56,574 INFO    MainThread:46354 [wandb_init.py:init():812] communicating run to backend with 90.0 second timeout
+2024-11-14 01:49:57,222 INFO    MainThread:46354 [wandb_init.py:init():863] starting run threads in backend
+2024-11-14 01:50:27,539 INFO    MainThread:46354 [wandb_run.py:_console_start():2465] atexit reg
+2024-11-14 01:50:27,539 INFO    MainThread:46354 [wandb_run.py:_redirect():2313] redirect: wrap_raw
+2024-11-14 01:50:27,539 INFO    MainThread:46354 [wandb_run.py:_redirect():2378] Wrapping output streams.
+2024-11-14 01:50:27,539 INFO    MainThread:46354 [wandb_run.py:_redirect():2403] Redirects installed.
+2024-11-14 01:50:27,541 INFO    MainThread:46354 [wandb_init.py:init():907] run started, returning control to user process

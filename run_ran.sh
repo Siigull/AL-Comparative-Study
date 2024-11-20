@@ -38,4 +38,4 @@ cp $HOMEDIR/.netrc ~/.netrc         # Copy netrc credentials to be sure that wan
 echo "Running experiment"
 cd $HOMEDIR/synced
 
-wandb agent ctufit/pelanekd-ALcompstudy-test/p2jdkvoz
+wandb agent ctufit/pelanekd-ALcompstudy/fvv5mgsg

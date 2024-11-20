@@ -79,7 +79,7 @@ def main() -> None:
         train_set=train_data,
         valid_sets=[train_data, val_data],
         valid_names=["train", "val"],
-        num_boost_round=1000,  
+        num_boost_round=30,  
         callbacks=[
             lgbt.early_stopping(stopping_rounds=50),
             lgbt.log_evaluation(10),
@@ -102,6 +102,8 @@ def main() -> None:
     wandb.log({"eval/f1": f1})
 
     wandb_report(eval_arr, y_test, predict_arr, [str(i) for i in range(nclasses)])
+    
+    print("done")
 
 if __name__ == "__main__":
     main()

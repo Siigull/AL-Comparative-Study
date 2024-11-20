@@ -1,0 +1,26 @@
+2024-11-14 01:04:15,324 INFO    MainThread:40321 [wandb_setup.py:_flush():79] Current SDK version is 0.18.3
+2024-11-14 01:04:15,325 INFO    MainThread:40321 [wandb_setup.py:_flush():79] Configure stats pid to 40321
+2024-11-14 01:04:15,325 INFO    MainThread:40321 [wandb_setup.py:_flush():79] Loading settings from /Users/dan/.config/wandb/settings
+2024-11-14 01:04:15,325 INFO    MainThread:40321 [wandb_setup.py:_flush():79] Loading settings from /Users/dan/Documents/src/COMP-STUDY/synced/wandb/settings
+2024-11-14 01:04:15,325 INFO    MainThread:40321 [wandb_setup.py:_flush():79] Loading settings from environment variables: {'_require_legacy_service': 'true', 'entity': 'ctufit', 'project': 'pelanekd-ALcompstudy-test', 'sweep_id': 'dxq2cb8g', 'root_dir': '/Users/dan/Documents/src/COMP-STUDY/synced', 'run_id': 'f20rfgvx', 'sweep_param_path': '/Users/dan/Documents/src/COMP-STUDY/synced/wandb/sweep-dxq2cb8g/config-f20rfgvx.yaml'}
+2024-11-14 01:04:15,325 INFO    MainThread:40321 [wandb_setup.py:_flush():79] Applying setup settings: {'mode': None, '_disable_service': None}
+2024-11-14 01:04:15,325 INFO    MainThread:40321 [wandb_setup.py:_flush():79] Inferring run settings from compute environment: {'program_relpath': 'uncertainty_strategy.py', 'program_abspath': '/Users/dan/Documents/src/COMP-STUDY/synced/uncertainty_strategy.py', 'program': '/Users/dan/Documents/src/COMP-STUDY/synced/uncertainty_strategy.py'}
+2024-11-14 01:04:15,325 INFO    MainThread:40321 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-11-14 01:04:15,325 INFO    MainThread:40321 [wandb_init.py:_log_setup():532] Logging user logs to /Users/dan/Documents/src/COMP-STUDY/synced/wandb/run-20241114_010415-f20rfgvx/logs/debug.log
+2024-11-14 01:04:15,325 INFO    MainThread:40321 [wandb_init.py:_log_setup():533] Logging internal logs to /Users/dan/Documents/src/COMP-STUDY/synced/wandb/run-20241114_010415-f20rfgvx/logs/debug-internal.log
+2024-11-14 01:04:15,325 INFO    MainThread:40321 [wandb_init.py:init():617] calling init triggers
+2024-11-14 01:04:15,325 INFO    MainThread:40321 [wandb_init.py:init():624] wandb.init called with sweep_config: {'average_unc_cutoff': 0.014866199703316206, 'bagging_fraction': 0.40103942706641926, 'feature_fraction': 0.937799042730426, 'learning_rate': 0.0459674889235475, 'min_child_samples': 53, 'min_data_in_leaf': 524, 'num_leaves': 81}
+config: {}
+2024-11-14 01:04:15,325 INFO    MainThread:40321 [wandb_init.py:init():667] starting backend
+2024-11-14 01:04:15,325 INFO    MainThread:40321 [wandb_init.py:init():671] sending inform_init request
+2024-11-14 01:04:15,331 INFO    MainThread:40321 [backend.py:_multiprocessing_setup():104] multiprocessing start_methods=spawn,fork,forkserver, using: spawn
+2024-11-14 01:04:15,331 INFO    MainThread:40321 [wandb_init.py:init():684] backend started and connected
+2024-11-14 01:04:15,341 INFO    MainThread:40321 [wandb_run.py:_config_callback():1394] config_cb None None {'average_unc_cutoff': 0.014866199703316206, 'bagging_fraction': 0.40103942706641926, 'feature_fraction': 0.937799042730426, 'learning_rate': 0.0459674889235475, 'min_child_samples': 53, 'min_data_in_leaf': 524, 'num_leaves': 81}
+2024-11-14 01:04:15,344 INFO    MainThread:40321 [wandb_init.py:init():779] updated telemetry
+2024-11-14 01:04:15,358 INFO    MainThread:40321 [wandb_init.py:init():812] communicating run to backend with 90.0 second timeout
+2024-11-14 01:04:15,735 INFO    MainThread:40321 [wandb_init.py:init():863] starting run threads in backend
+2024-11-14 01:04:46,019 INFO    MainThread:40321 [wandb_run.py:_console_start():2465] atexit reg
+2024-11-14 01:04:46,020 INFO    MainThread:40321 [wandb_run.py:_redirect():2313] redirect: wrap_raw
+2024-11-14 01:04:46,020 INFO    MainThread:40321 [wandb_run.py:_redirect():2378] Wrapping output streams.
+2024-11-14 01:04:46,020 INFO    MainThread:40321 [wandb_run.py:_redirect():2403] Redirects installed.
+2024-11-14 01:04:46,021 INFO    MainThread:40321 [wandb_init.py:init():907] run started, returning control to user process

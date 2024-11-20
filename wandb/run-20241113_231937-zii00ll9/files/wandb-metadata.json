@@ -1,0 +1,52 @@
+{
+    "os": "macOS-13.4.1-arm64-arm-64bit",
+    "python": "3.11.1",
+    "heartbeatAt": "2024-11-14T10:49:50.892753",
+    "startedAt": "2024-11-13T22:19:37.092676",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "--config-name",
+        "lgbm-conf"
+    ],
+    "state": "running",
+    "program": "/Users/dan/Documents/src/COMP-STUDY/synced/uncertainty_strategy.py",
+    "codePathLocal": "uncertainty_strategy.py",
+    "codePath": "uncertainty_strategy.py",
+    "git": {
+        "remote": "git@github.com:Siigull/AL-Comparative-Study.git",
+        "commit": "7e7a49d7642bb2c5d4879014e26f7ca35fa0c5ae"
+    },
+    "email": null,
+    "root": "/Users/dan/Documents/src/COMP-STUDY/synced",
+    "host": "Daniels-MacBook-Air-2.local",
+    "username": "dan",
+    "executable": "/Library/Frameworks/Python.framework/Versions/3.11/bin/python3",
+    "cpu_count": 8,
+    "cpu_count_logical": 8,
+    "cpu_freq": {
+        "current": 3204,
+        "min": 600,
+        "max": 3204
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 3204,
+            "min": 600,
+            "max": 3204
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 228.27386474609375,
+            "used": 11.198070526123047
+        }
+    },
+    "gpuapple": {
+        "type": "arm",
+        "vendor": "Apple"
+    },
+    "memory": {
+        "total": 16.0
+    }
+}
