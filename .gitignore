@@ -1,3 +1,5 @@
 outputs/
 Python-3.11.1/
 wandb/
+gcc-12.3.0/
+cmake-3.31.1-linux-x86_64/
