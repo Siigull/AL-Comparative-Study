@@ -132,7 +132,7 @@ class Sweep_Class:
             "verbose": -1,
             "num_threads": 28,
             "max_bin": 63,
-            "device": "gpu",
+            "device": "cuda",
             "gpu_device_id": 0,
             "objective": "multiclass",
             "num_class": self.nclasses,
