@@ -12,6 +12,8 @@ def main():
         "average_unc_cutoff": 0.06
     }
 
+    print("Baf")
+
     model = Uncertainty_Sweep(cfg)
     model.run(10000)
     model.eval()

@@ -132,7 +132,7 @@ class Sweep_Class:
             "verbose": -1,
             "num_threads": -1,
             "max_bin": 63,
-            "device": "gpu",
+            "device": "cuda",
             "gpu_device_id": 0,
             "objective": "multiclass",
             "num_class": self.nclasses,
@@ -172,18 +172,14 @@ class Sweep_Class:
 
         eval_arr = [[index, value] for index, value in enumerate(self.evals_result['val']['f1'])]
 
-        f1 = f1_score(self.y_test, predict_arr, average='weighted')
+        f1 = f1_score(self.y_test, predict_arr, average='macro')
 
-        print(f1)
-
-        wandb.log({"eval/f1": f1})
-
-        wandb_report(eval_arr, self.y_test, predict_arr, [str(i) for i in range(nclasses)])
+        return f1, eval_arr, self.y_test, predict_arr, [str(i) for i in range(nclasses)]
 
     def next_period(self, period="day"):
         print(self.week_i)
         self.day_i += 1
-
+        
         if self.day_i % 7 == 0:
             self.week_i += 1
 
@@ -267,7 +263,7 @@ class Uncertainty_Sweep(Sweep_Class):
             predict_arr = self.model.predict(self.X_test)
             predict_arr = np.argmax(predict_arr, axis=1)
 
-            f1 = f1_score(self.y_test, predict_arr, average='weighted')
+            f1 = f1_score(self.y_test, predict_arr, average='macro')
             print(f1)
 
             # day += 1
