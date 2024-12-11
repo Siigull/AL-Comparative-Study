@@ -20,9 +20,18 @@ def f1_eval(preds, train_data):
     return 'f1', f1, True
 
 def main() -> None:
-    wandb.init()
+    # wandb.init()
 
-    cfg = wandb.config
+    cfg = {
+        "learning_rate": 0.01,
+        "num_leaves": 200,
+        "min_data_in_leaf": 500,
+        "bagging_fraction": 1,
+        "feature_fraction": 1,
+        "min_child_samples": 10,
+        "average_unc_cutoff": 0.06
+    }
+
     # cfg_dict = OmegaConf.to_container(cfg, resolve=True)
 
     print(cfg["learning_rate"])
@@ -56,13 +65,22 @@ def main() -> None:
     train_data = lgbt.Dataset(X, y)
     val_data = lgbt.Dataset(X_val, y_val, reference=train_data)
 
+    nefunguje pip install verze
+    ručně build 
+    jinej build vzdáleně než lokálně 
+    killed 
+    add module
+
     lgbm_params = {
         "verbose": -1,
         "num_threads": -1,
+        "max_bin": 63,
+        "device": "gpu",
+        "gpu_device_id": 0,
         "objective": "multiclass",
         "num_class": nclasses,
         "metric": "multi_logloss",
-        "boosting_type": "gbdt",
+        "boosting_type": "dart",
         "learning_rate": cfg["learning_rate"],
         "num_leaves": cfg["num_leaves"],
         "min_data_in_leaf": cfg["min_data_in_leaf"],

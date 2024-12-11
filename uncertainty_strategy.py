@@ -2,6 +2,8 @@ from sweep_base import Uncertainty_Sweep
 import wandb
 
 def main():
+    print(wandb.__file__)
+
     wandb.init()
 
     cfg = wandb.config

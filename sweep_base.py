@@ -43,7 +43,7 @@ class Sweep_Class:
         for i in self.week_arr:
             self.day_arr += dataset.time_periods[i]
 
-        self.day_i = 0
+        self.day_i = -1
         self.week_i = -1
 
         common_params = {
@@ -131,6 +131,7 @@ class Sweep_Class:
         lgbm_params = {
             "verbose": -1,
             "num_threads": -1,
+            "max_bin": 63,
             "device": "gpu",
             "gpu_device_id": 0,
             "objective": "multiclass",
@@ -167,23 +168,27 @@ class Sweep_Class:
         predict_arr = self.model.predict(self.X_test)
         predict_arr = np.argmax(predict_arr, axis=1)
 
-        # nclasses = len(np.unique(self.y_test))
+        nclasses = len(np.unique(self.y_test))
 
-        # eval_arr = [[index, value] for index, value in enumerate(self.evals_result['val']['f1'])]
+        eval_arr = [[index, value] for index, value in enumerate(self.evals_result['val']['f1'])]
 
         f1 = f1_score(self.y_test, predict_arr, average='weighted')
 
         print(f1)
 
-        # wandb.log({"eval/f1": f1})
+        wandb.log({"eval/f1": f1})
 
-        # wandb_report(eval_arr, self.y_test, predict_arr, [str(i) for i in range(nclasses)])
+        wandb_report(eval_arr, self.y_test, predict_arr, [str(i) for i in range(nclasses)])
 
-    def next_period(self):
+    def next_period(self, period="day"):
+        print(self.week_i)
         self.day_i += 1
-        if self.day_i % 3 == 0:
-            return False
+
+        if self.day_i % 7 == 0:
             self.week_i += 1
+
+        if period == "week":
+            self.day_i += 6
 
         if self.week_i >= len(self.week_arr):
             return False
@@ -193,13 +198,23 @@ class Sweep_Class:
         except:
             dataset = CESNET_TLS_Year22(data_root="~/datasets/CESNET-TLS-Year22/", size="XS")
 
-        common_params = {
-            "dataset" : dataset,
-            "apps_selection" : AppSelection.ALL_KNOWN,
-            "train_period_name": self.week_arr[self.week_i],
-            "train_dates": {self.day_arr[self.day_i]},
-            "need_test_set": False,
-        }
+        if period == "week":
+            common_params = {
+                "dataset" : dataset,
+                "apps_selection" : AppSelection.ALL_KNOWN,
+                "train_period_name": self.week_arr[self.week_i],
+                "train_dates": self.day_arr[self.day_i-6:self.day_i],
+                "need_test_set": False,
+            }
+
+        else:
+            common_params = {
+                "dataset" : dataset,
+                "apps_selection" : AppSelection.ALL_KNOWN,
+                "train_period_name": self.week_arr[self.week_i],
+                "train_dates": {self.day_arr[self.day_i]},
+                "need_test_set": False,
+            }
 
         dataset_config = DatasetConfig(**common_params)
         dataset.set_dataset_config_and_initialize(dataset_config)
@@ -269,9 +284,9 @@ class Random_Sweep(Sweep_Class):
             self.chosen_indices = np.concatenate(([self.chosen_indices, self.unknown_indices[:int(len(self.X) * self.cfg["random_frac"])]]));            
             self.unknown_indices = self.unknown_indices[int(len(self.X) * self.cfg["random_frac"]):]
             
-            day += 1
+            day += 6
 
-            if not self.next_period():
+            if not self.next_period(period="week"):
                 break
 
 def depth(el):

@@ -1,4 +1,4 @@
-from sweep_base import Uncertainty_Sweep
+from sweep_base import Random_Sweep
 
 if __name__ == "__main__":
     cfg = {
@@ -8,9 +8,10 @@ if __name__ == "__main__":
         "bagging_fraction": 1,
         "feature_fraction": 1,
         "min_child_samples": 10,
+        "random_frac": 0.05,
     }
     
-    unc_model = Uncertainty_Sweep(cfg)
-    unc_model.run(10000)
+    unc_model = Random_Sweep(cfg)
+    unc_model.run()
     # unc_model.eval()
 
