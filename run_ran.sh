@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N RunExperimentECNN
-#PBS -q gpu
-#PBS -l select=1:ncpus=4:mem=16gb:ngpus=1
+#PBS -q gpu@cerit-pbs.cerit-sc.cz
+#PBS -l select=1:ncpus=1:mem=16gb:ngpus=1
 #PBS -l walltime=24:00:00
 #PBS -m ae
 
@@ -10,7 +10,7 @@ echo ${PBS_O_LOGNAME:?This script must be run under PBS scheduling system, execu
 # Define variables
 HOMEDIR=/storage/brno2/home/$USER   # Home directory
 BASE_DIR=$HOMEDIR/data              # Data directory
-PYTHON_ENV=$HOMEDIR/synced/venv       # Path to Python environment
+PYTHON_ENV=$HOMEDIR/synced/venv     # Path to Python environment
 source $PYTHON_ENV/bin/activate     # Activate Python environment
 HOSTNAME=`hostname -f`              # Hostname
 EXECMAIL=`which mail`               # Mail command
