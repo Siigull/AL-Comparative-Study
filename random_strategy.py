@@ -6,9 +6,9 @@ def main():
     wandb.init()
 
     cfg = wandb.config
-    unc_model = Random_Sweep(cfg)
-    unc_model.run()
-    f1, eval_arr, y_test, predict_arr, classes = unc_model.eval()
+    ran_model = Random_Sweep(cfg)
+    ran_model.run()
+    f1, eval_arr, y_test, predict_arr, classes = ran_model.eval()
 
     wandb.log({"eval/f1": f1})
 

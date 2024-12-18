@@ -110,20 +110,22 @@ class Sweep_Class:
 
         return dataset_len
 
-    def train(self, max_rounds=1000):
+    def train(self, max_rounds=1000, period="day"):
         X_arr = np.copy(self.X[self.chosen_indices])
         y_arr = np.copy(self.y[self.chosen_indices])
         X_val_arr = np.copy(self.X_val)
         y_val_arr = np.copy(self.y_val)
-        try:
-            for array_index in range(len(self.prev_Xs)-1, max(len(self.prev_Xs)-10, -1), -1):
-                X_arr = np.concatenate([X_arr, self.prev_Xs[array_index]])
-                y_arr = np.concatenate([y_arr, self.prev_ys[array_index]])
-                X_val_arr = np.concatenate([X_val_arr, self.prev_valXs[array_index]])
-                y_val_arr = np.concatenate([y_val_arr, self.prev_valys[array_index]])
-            
-        except Exception as exception:
-            print(exception)
+
+        if period == "day":
+            try:
+                for array_index in range(len(self.prev_Xs)-1, max(len(self.prev_Xs)-7, -1), -1):
+                    X_arr = np.concatenate([X_arr, self.prev_Xs[array_index]])
+                    y_arr = np.concatenate([y_arr, self.prev_ys[array_index]])
+                    X_val_arr = np.concatenate([X_val_arr, self.prev_valXs[array_index]])
+                    y_val_arr = np.concatenate([y_val_arr, self.prev_valys[array_index]])
+                
+            except Exception as exception:
+                print(exception)
 
         train_data = lgbt.Dataset(X_arr, y_arr)
         val_data = lgbt.Dataset(X_val_arr, y_val_arr, reference=train_data)
@@ -132,7 +134,7 @@ class Sweep_Class:
             "verbose": -1,
             "num_threads": -1,
             "max_bin": 63,
-            "device": "cuda",
+            "device": "gpu",
             "gpu_device_id": 0,
             "objective": "multiclass",
             "num_class": self.nclasses,
@@ -280,7 +282,12 @@ class Random_Sweep(Sweep_Class):
             self.chosen_indices = np.concatenate(([self.chosen_indices, self.unknown_indices[:int(len(self.X) * self.cfg["random_frac"])]]));            
             self.unknown_indices = self.unknown_indices[int(len(self.X) * self.cfg["random_frac"]):]
             
-            day += 6
+            day += 7
+
+            self.train(100, period="week")
+            f1 = self.eval()
+            print("f1 score:", end=" ")
+            print(f1)
 
             if not self.next_period(period="week"):
                 break
