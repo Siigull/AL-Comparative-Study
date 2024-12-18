@@ -4,6 +4,7 @@ import pandas as pd
 # import hydra
 import wandb
 from wandb_reporter import wandb_report
+import daal4py as d4p
 
 import os
 import sys
@@ -43,6 +44,7 @@ class Sweep_Class:
         for i in self.week_arr:
             self.day_arr += dataset.time_periods[i]
 
+        self.period = "day"
         self.day_i = -1
         self.week_i = -1
 
@@ -110,13 +112,13 @@ class Sweep_Class:
 
         return dataset_len
 
-    def train(self, max_rounds=1000, period="day"):
+    def train(self, max_rounds=1000):
         X_arr = np.copy(self.X[self.chosen_indices])
         y_arr = np.copy(self.y[self.chosen_indices])
         X_val_arr = np.copy(self.X_val)
         y_val_arr = np.copy(self.y_val)
 
-        if period == "day":
+        if self.period == "day":
             try:
                 for array_index in range(len(self.prev_Xs)-1, max(len(self.prev_Xs)-7, -1), -1):
                     X_arr = np.concatenate([X_arr, self.prev_Xs[array_index]])
@@ -134,12 +136,11 @@ class Sweep_Class:
             "verbose": -1,
             "num_threads": -1,
             "max_bin": 63,
-            "device": "gpu",
-            "gpu_device_id": 0,
+            "device": "cpu",
             "objective": "multiclass",
             "num_class": self.nclasses,
             "metric": "multi_logloss",
-            "boosting_type": "dart",
+            "max_depth": 20,
             "learning_rate": self.cfg["learning_rate"],
             "num_leaves": self.cfg["num_leaves"],
             "min_data_in_leaf": self.cfg["min_data_in_leaf"],
@@ -167,6 +168,9 @@ class Sweep_Class:
 
     def eval(self):
         self.train(100)
+
+        print(len(self.X_test))
+
         predict_arr = self.model.predict(self.X_test)
         predict_arr = np.argmax(predict_arr, axis=1)
 
@@ -178,14 +182,14 @@ class Sweep_Class:
 
         return f1, eval_arr, self.y_test, predict_arr, [str(i) for i in range(nclasses)]
 
-    def next_period(self, period="day"):
+    def next_period(self):
         print(self.week_i)
         self.day_i += 1
         
         if self.day_i % 7 == 0:
             self.week_i += 1
 
-        if period == "week":
+        if self.period == "week":
             self.day_i += 6
 
         if self.week_i >= len(self.week_arr):
@@ -196,7 +200,7 @@ class Sweep_Class:
         except:
             dataset = CESNET_TLS_Year22(data_root="~/datasets/CESNET-TLS-Year22/", size="XS")
 
-        if period == "week":
+        if self.period == "week":
             common_params = {
                 "dataset" : dataset,
                 "apps_selection" : AppSelection.ALL_KNOWN,
@@ -275,6 +279,7 @@ class Uncertainty_Sweep(Sweep_Class):
 
 class Random_Sweep(Sweep_Class):
     def run(self):
+        self.period = "week"
         day = 0
         while True:
             print(day)
@@ -284,12 +289,11 @@ class Random_Sweep(Sweep_Class):
             
             day += 7
 
-            self.train(100, period="week")
             f1 = self.eval()
             print("f1 score:", end=" ")
             print(f1)
 
-            if not self.next_period(period="week"):
+            if not self.next_period():
                 break
 
 def depth(el):

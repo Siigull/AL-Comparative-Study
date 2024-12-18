@@ -64,13 +64,7 @@ def main() -> None:
 
     train_data = lgbt.Dataset(X, y)
     val_data = lgbt.Dataset(X_val, y_val, reference=train_data)
-
-    nefunguje pip install verze
-    ručně build 
-    jinej build vzdáleně než lokálně 
-    killed 
-    add module
-
+    
     lgbm_params = {
         "verbose": -1,
         "num_threads": -1,
