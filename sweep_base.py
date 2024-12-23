@@ -4,7 +4,6 @@ import pandas as pd
 # import hydra
 import wandb
 from wandb_reporter import wandb_report
-import daal4py as d4p
 
 import os
 import sys
@@ -33,7 +32,7 @@ class Sweep_Class:
         self.cfg = cfg
 
         try:
-            dataset = CESNET_TLS_Year22(data_root="/storage/brno2/home/sigull/datasets/CESNET-TLS-Year22/", size="XS")
+            dataset = CESNET_TLS_Year22(data_root="/storage/brno2/home/sigull/datasets/CESNET-TLS-Year22/", size="L")
         except:
             dataset = CESNET_TLS_Year22(data_root="~/datasets/CESNET-TLS-Year22/", size="XS")
         
@@ -45,8 +44,8 @@ class Sweep_Class:
             self.day_arr += dataset.time_periods[i]
 
         self.period = "day"
-        self.day_i = -1
-        self.week_i = -1
+        self.day_i = 0
+        self.week_i = 0
 
         common_params = {
             "dataset" : dataset,
@@ -90,6 +89,8 @@ class Sweep_Class:
         self.X_test = test_dataframe.drop(columns="APP").to_numpy()
         self.y_test = test_dataframe["APP"].to_numpy()
         self.y_test = np.array([local_to_global[y] for y in self.y_test])
+
+        self.week_evals = []
 
         already_chosen = 15000
 
@@ -166,8 +167,8 @@ class Sweep_Class:
             feval=f1_eval,
         )
 
-    def eval(self):
-        self.train(100)
+    def eval(self, rounds=100):
+        self.train(rounds)
 
         print(len(self.X_test))
 
@@ -176,9 +177,11 @@ class Sweep_Class:
 
         nclasses = len(np.unique(self.y_test))
 
-        eval_arr = [[index, value] for index, value in enumerate(self.evals_result['val']['f1'])]
-
         f1 = f1_score(self.y_test, predict_arr, average='macro')
+
+        self.week_evals.append(f1)
+
+        eval_arr = [[index, value] for index, value in enumerate(self.week_evals)]
 
         return f1, eval_arr, self.y_test, predict_arr, [str(i) for i in range(nclasses)]
 
@@ -186,17 +189,18 @@ class Sweep_Class:
         print(self.week_i)
         self.day_i += 1
         
+        if self.period == "week":
+            self.day_i += 6
+        
         if self.day_i % 7 == 0:
             self.week_i += 1
 
-        if self.period == "week":
-            self.day_i += 6
 
         if self.week_i >= len(self.week_arr):
             return False
 
         try:
-            dataset = CESNET_TLS_Year22(data_root="/storage/brno2/home/sigull/datasets/CESNET-TLS-Year22/", size="XS")
+            dataset = CESNET_TLS_Year22(data_root="/storage/brno2/home/sigull/datasets/CESNET-TLS-Year22/", size="L")
         except:
             dataset = CESNET_TLS_Year22(data_root="~/datasets/CESNET-TLS-Year22/", size="XS")
 
@@ -252,7 +256,7 @@ class Uncertainty_Sweep(Sweep_Class):
             # print("Current dataset len:", self.get_current_train_dataset_len())
 
             while(len(self.unknown_indices) >= batch_size):
-                self.train(70)
+                self.train(20)
                 predict_arr = self.model.predict(self.X[self.unknown_indices])
                 average_unc = 1 - (np.sum(np.max(predict_arr, axis=1)) / len(predict_arr))
                 # print(average_unc)
@@ -265,11 +269,8 @@ class Uncertainty_Sweep(Sweep_Class):
                 self.chosen_indices = np.concatenate(([self.chosen_indices, np.array(selected_indexes)]))
                 self.unknown_indices = np.delete(self.unknown_indices, sorted_indexes_1toN) 
             
-            self.train(70)
-            predict_arr = self.model.predict(self.X_test)
-            predict_arr = np.argmax(predict_arr, axis=1)
-
-            f1 = f1_score(self.y_test, predict_arr, average='macro')
+            f1 = self.eval(20)
+            print("f1 score:", end=" ")
             print(f1)
 
             # day += 1
@@ -289,7 +290,7 @@ class Random_Sweep(Sweep_Class):
             
             day += 7
 
-            f1 = self.eval()
+            f1 = self.eval(20)
             print("f1 score:", end=" ")
             print(f1)
 
@@ -322,7 +323,7 @@ class LAL_Sweep(Sweep_Class):
         return np.max(predict_arr, axis=1)
 
     def run(self):
-        train_iters = 70
+        train_iters = 20
 
         while True:
             self.train(train_iters)

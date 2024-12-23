@@ -1,0 +1,6 @@
+cesnet-datazoo==0.1.6
+lightgbm==4.5.0
+numpy==1.26.4
+pandas==2.2.3
+scikit-learn==1.2.0
+wandb==0.18.3
