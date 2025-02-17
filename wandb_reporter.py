@@ -6,7 +6,7 @@ from sklearn.metrics import classification_report
 def wandb_report(training_f1, true_labels, pred_labels, target_names):
     report_columns = ["Class", "Precision", "Recall", "F1-score", "Support"]
     
-    class_report = classification_report(true_labels, pred_labels, target_names=target_names, zero_division=0).splitlines()
+    class_report = classification_report(true_labels, pred_labels, zero_division=0).splitlines()
 
     report_table = []
     for line in class_report[2:(len(target_names) + 2)]:

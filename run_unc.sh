@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -N RunExperimentECNN
 #PBS -q gpu
-#PBS -l select=1:ncpus=32:mem=40gb:ngpus=1:ompthreads=32
+#PBS -l select=1:ncpus=32:mem=64gb:ngpus=1:ompthreads=32
 #PBS -l walltime=24:00:00
 #PBS -m ae
 
@@ -38,4 +38,4 @@ cp $HOMEDIR/.netrc ~/.netrc         # Copy netrc credentials to be sure that wan
 echo "Running experiment"
 cd $HOMEDIR/synced
 
-wandb agent ctufit/pelanekd-ALcompstudy/6s5kgnu0
+wandb agent ctufit/pelanekd-ALcompstudy/yb6wdw81

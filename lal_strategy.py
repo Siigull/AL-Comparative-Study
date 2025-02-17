@@ -1,4 +1,4 @@
-from sweep_base import Uncertainty_Sweep
+from sweep_base import LAL_Sweep
 import wandb
 from wandb_reporter import wandb_report
 
@@ -6,10 +6,9 @@ def main():
     wandb.init()
 
     cfg = wandb.config
-
-    unc_model = Uncertainty_Sweep(cfg)
-    unc_model.run(50000)
-    f1, eval_arr, y_test, predict_arr, classes = unc_model.eval()
+    lal_model = LAL_Sweep(cfg)
+    lal_model.run()
+    f1, eval_arr, y_test, predict_arr, classes = lal_model.eval()
 
     wandb.log({"eval/f1": f1})
 

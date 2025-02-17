@@ -28,7 +28,7 @@ class Sweep_Class:
     def eval():
         pass
 
-    def __init__(self, cfg):
+    def __init__(self, cfg, eval=False):
         self.cfg = cfg
 
         try:
@@ -38,7 +38,11 @@ class Sweep_Class:
         
         self.nclasses = 180
 
-        self.week_arr = list(dataset.time_periods.keys())[10:30]
+        if eval:
+            self.week_arr = list(dataset.time_periods.keys())[30:52]
+        else:
+            self.week_arr = list(dataset.time_periods.keys())[10:30]
+            
         self.day_arr = []
         for i in self.week_arr:
             self.day_arr += dataset.time_periods[i]
@@ -59,9 +63,16 @@ class Sweep_Class:
         dataset.set_dataset_config_and_initialize(dataset_config)
         train_dataframe = dataset.get_train_df(flatten_ppi=True)
         val_dataframe = dataset.get_val_df(flatten_ppi=True)
-        test_dataframe = dataset.get_test_df(flatten_ppi=True)
+        test_dataframe = pd.DataFrame({})
 
-        for i in range(11, 7, -1):
+        start_month = 7
+        end_month = 12
+
+        if eval:
+            start_month = 2
+            end_month = 7
+
+        for i in range(end_month, start_month, -1):
             common_params = {
                 "dataset" : dataset,
                 "apps_selection" : AppSelection.ALL_KNOWN,
@@ -105,7 +116,7 @@ class Sweep_Class:
         dataset_len = len(self.chosen_indices)
 
         try:
-            for array_index in range(len(self.prev_Xs)-1, max(len(self.prev_Xs)-10, -1), -1):
+            for array_index in range(len(self.prev_Xs)-1, max(len(self.prev_Xs)-7, -1), -1):
                 dataset_len += len(self.prev_Xs[array_index])
             
         except Exception as exception:
@@ -250,10 +261,10 @@ class Sweep_Class:
 
 class Uncertainty_Sweep(Sweep_Class):
     def run(self, batch_size=1):
-        day = 0
+        day = 1
         while True:
             # print("Current day:", day)
-            # print("Current dataset len:", self.get_current_train_dataset_len())
+            print("Current dataset len:", self.get_current_train_dataset_len())
 
             while(len(self.unknown_indices) >= batch_size):
                 self.train(20)
@@ -269,9 +280,10 @@ class Uncertainty_Sweep(Sweep_Class):
                 self.chosen_indices = np.concatenate(([self.chosen_indices, np.array(selected_indexes)]))
                 self.unknown_indices = np.delete(self.unknown_indices, sorted_indexes_1toN) 
             
-            f1 = self.eval(20)
-            print("f1 score:", end=" ")
-            print(f1)
+            if day % 7 == 0:
+                f1 = self.eval(20)
+                print("f1 score:", end=" ")
+                print(f1)
 
             # day += 1
 
@@ -315,6 +327,18 @@ def depth(el):
 
 
 class LAL_Sweep(Sweep_Class):
+    def init(self):
+        filename = 'LAL-iterativetree-simulated2Gauss2dim.npz'
+        parameters = {'est': 2000, 'depth': 40, 'feat': 6 }
+        regression_data = np.load(filename)
+        regression_features = regression_data['arr_0']
+        regression_labels = regression_data['arr_1']
+
+        print('Building lal regression model..')
+        self.lalModel = lgbt.LGBMRegressor(n_estimators = parameters['est'], max_depth = parameters['depth'], n_jobs=-1)
+
+        self.lalModel.fit(regression_features, np.ravel(regression_labels)) 
+
     def get_pred(self, iters):
         predict_arr = self.model.predict(
             self.X[self.unknown_indices], start_iteration=iters, num_iteration=1, raw_score=True
@@ -322,14 +346,15 @@ class LAL_Sweep(Sweep_Class):
 
         return np.max(predict_arr, axis=1)
 
-    def run(self):
+    def run(self, batch_size=1):
         train_iters = 20
 
         while True:
+            print("Current dataset len:", self.get_current_train_dataset_len())
+
             self.train(train_iters)
             val_log_loss = self.evals_result["val"]["multi_logloss"][-1]
 
-            # print(self.model.model_to_string())
             tree_heights = []
             model_dump = self.model.dump_model()
             for tree in model_dump['tree_info']:
@@ -365,11 +390,19 @@ class LAL_Sweep(Sweep_Class):
             # - compute the average depth of the trees in the forest
             f_7 = average_height * np.ones_like(f_1)
             # - number of already labelled datapoints
-            f_8 = np.size(self.chosen_indices) * np.ones_like(f_1)
+            f_8 = n_labelled * np.ones_like(f_1)
 
             LALfeatures = np.concatenate(([f_1], [f_2], [f_3], [f_4], [f_5], [f_6], [f_7], [f_8]), axis=0)
             LALfeatures = np.transpose(LALfeatures)
 
+            LALprediction = self.lalModel.predict(LALfeatures)
+
+            selectedIndices1toN = np.argsort(LALprediction)[-batch_size:][::-1]
+
+            selectedIndices = self.unknown_indices[selectedIndices1toN]
+
+            self.chosen_indices = np.concatenate((self.chosen_indices, selectedIndices))
+            self.unknown_indices = np.delete(self.unknown_indices, selectedIndices1toN)
+
             if not self.next_period():
                 break
-
